@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+   
 </head>
 <body>
-    
+    <h1> Play Rock Paper Scissors</h1>
+    <button id = "rock" onclick="playRound('rock',getComputerChoice())">Rock</button>
+    <button id=" paper" onclick="playRound('paper',getComputerChoice())">Paper</button>
+    <button id="scissors"onclick="playRound('scissors',getComputerChoice())" >Scissors</button>
+<div id = 'Scoreboard'>
+    <h4>score board</h4>
+    <p id="pscore">Your Score: 0</p>
+    <p id ="gscore">Computer Score: 0</p>
+</div>
+<div class="popupWindow" id="popupWindow">
+    <h2 id="popResult"></h2>
+    <button id='clear'>reset</button>
+</div>
 </body>
+<script src="script.js"></script
 </html>

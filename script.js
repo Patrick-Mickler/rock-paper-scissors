@@ -1,7 +1,7 @@
 
 const options =["rock" , "paper" , "scissors"]
-let humanScore = 0
-let computerScore = 0
+let pScore = 0
+let gScore = 0
 
 
 
@@ -13,13 +13,14 @@ function getComputerChoice(){
 }
 
 
-function getHumanChoice(){
-    let playerChoice = prompt("Pick Rock, Paper,or Scissors");
-     console.log(playerChoice);
-     return(playerChoice.toLowerCase());
+//function getHumanChoice(){
+  //  let playerChoice = prompt("Pick Rock, Paper,or Scissors");
+    // console.log(playerChoice);
+     //return(playerChoice.toLowerCase());
 
-}
+//}
 function checkWinner(playerChoice, computerChoice){
+
     
     if
     ( playerChoice === computerChoice)
@@ -33,54 +34,90 @@ function checkWinner(playerChoice, computerChoice){
     (playerChoice == "scissors" && computerChoice == "paper")
     )
     {
-        ++humanScore;
+        pScore++  
     return("Player");
     
     }
     else{
-        ++computerScore;
+        gScore++
        return("Computer");
        
     }
+
+    
+
+   
+
+
 }
 
 
 function playRound(playerChoice, computerChoice ){
-  
-  const result = checkWinner(playerChoice,computerChoice);
-  console.log(`Your Score: ${humanScore}`);
-  console.log(`Computer Score:${computerScore}`)
+    let humanScoreCounter = document.getElementById('pscore')
+    let computerScoreCounter = document.getElementById('gscore')
+    const result = checkWinner(playerChoice,computerChoice);
+
     if (result === 'Tie'){
         console.log("It's a Tie!")
     }
     else if (result === 'Player'){
+        
+       
         console.log(`You Win! ${playerChoice} beats ${computerChoice}`)
     }
     else if (result == 'Computer') {
+        
+       
         console.log(`You Lose! ${computerChoice} beats ${playerChoice}`)
        
     }
 
+    document.getElementById('pscore').innerText=`Your Score: ${pScore}`;
+    document.getElementById('gscore').innerText=`Computer Score:${gScore}`;
     
+
+    if (pScore === 5){
+        popResult.innerText= "YOU WIN!!!! :)";
+
+    }
+    else if(gScore === 5){
+        popResult.innerText ="YOU LOSE :(";
+
+    }
+
     
+     function resetScore(){
+        pScore = 0;
+        gScore = 0;
+        document.getElementById('pscore').innerText = `Your Score: ${pScore}`;
+        document.getElementById('gscore').innerText= `Computer Score: ${gScore}`;
+        
+      }
+
+      document.getElementById('clear').onclick = function hideMessage(){
+        popResult.innerText =""
+        resetScore();
+
+      }
+
 }
 
 
 
-function playGame(){
-     
+      
     
-    for (let i = 0; i < 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-         
-    }
-    if (humanScore > computerScore) {
-         console.log(`You Win The Game !!!😃`);
+   
 
-    }
-    else if ( humanScore < computerScore) { 
-        console.log ('Sorry You Lose The Game.😭' )
-    }
+
     
-}
-playGame();
+   
+ 
+    
+    
+    
+   
+
+
+
+
+
