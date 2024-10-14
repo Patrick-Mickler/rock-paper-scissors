@@ -30,7 +30,7 @@ function checkWinner(playerChoice, computerChoice){
     
     else if(
     (playerChoice == "rock" && computerChoice == "scissors" )||
-    (playerChoice== "paper" && computerChoice == "rock")||
+    (playerChoice == "paper" && computerChoice == "rock")||
     (playerChoice == "scissors" && computerChoice == "paper")
     )
     {
